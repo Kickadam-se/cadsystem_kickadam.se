@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cad system</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Inloggning -->
+  <div class="container" id="login-container">
+    <h1>Logga in</h1>
+    <input type="text" id="login-username" placeholder="Användarnamn">
+    <input type="password" id="login-password" placeholder="Lösenord">
+    <label for="login-category">Välj kategori:</label>
+    <select id="login-category">
+      <option value="Polis">Polis</option>
+      <option value="Sjukvård">Sjukvård</option>
+      <option value="Räddningstjänst">Räddningstjänst</option>
+    </select>
+    <button onclick="login()">Logga in</button>
+    <p>Har du inget konto? <a href="#" onclick="showRegister()">Registrera dig</a></p>
+    <p id="login-message" class="message"></p>
+  </div>
+
+  <!-- Registrering -->
+  <div class="container hidden" id="register-container">
+    <h1>Registrera konto</h1>
+    <input type="text" id="register-username" placeholder="Användarnamn">
+    <input type="password" id="register-password" placeholder="Lösenord">
+    <label for="register-category">Välj kategori:</label>
+    <select id="register-category">
+      <option value="Polis">Polis</option>
+      <option value="Sjukvård">Sjukvård</option>
+      <option value="Räddningstjänst">Räddningstjänst</option>
+    </select>
+    <button onclick="register()">Skapa konto</button>
+    <p>Har du redan ett konto? <a href="#" onclick="showLogin()">Logga in</a></p>
+    <p id="register-message" class="message"></p>
+  </div>
+
+  <!-- Huvudvy efter inloggning -->
+  <div id="main-container" class="hidden">
+    <img src="bakgrund.jpg" alt="Bakgrund" id="fullscreen-image">
+    <div id="buttons-overlay">
+      <button onclick="showAnmal()">Anmäl mig</button>
+      <button onclick="showList()">Listan</button>
+    </div>
+    <button id="logout-btn" onclick="logout()">Logga ut</button>
+  </div>
+
+  <!-- Anmäl mig -->
+  <div class="container hidden" id="anmal-container">
+    <h2>Anmäl dig</h2>
+    <label>Välj alternativ:</label>
+    <select id="anmal-option"></select>
+    <input type="text" id="anmal-rakel" placeholder="Rakel">
+    <button onclick="submitAnmal()">Klar</button>
+    <button onclick="backToMain()">Tillbaka</button>
+  </div>
+
+  <!-- Listan -->
+  <div class="container hidden" id="list-container">
+    <h2>Listan över anmälda</h2>
+    <ul id="anmal-list"></ul>
+    <button onclick="backToMain()">Tillbaka</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
